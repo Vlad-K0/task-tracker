@@ -1,0 +1,12 @@
+# === Local learning materials (not for public repo) ===
+.zcode/
+AGENTS.md
+docs/learning/
+gaps-log.md
+.env
+
+# === IDE ===
+.idea/
+
+# === OS ===
+.DS_Store
