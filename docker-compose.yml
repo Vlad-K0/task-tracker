@@ -1,6 +1,6 @@
 services:
   db:
-    image: postgres
+    image: postgres:18.6
     container_name: pg_db
     restart: always
     env_file:
@@ -15,5 +15,15 @@ services:
       timeout: 10s
     volumes:
       - mydb:/var/lib/postgresql
+  broker:
+    image: apache/kafka:latest
+    container_name: broker
+    env_file:
+      - .env
+    healthcheck:
+      test: [ "CMD-SHELL", "/opt/kafka/bin/kafka-topics.sh --bootstrap-server localhost:9092 --list" ]
+      interval: 2s
+      timeout: 2s
+      retries: 15
 volumes:
   mydb:
