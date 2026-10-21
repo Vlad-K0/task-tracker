@@ -12,8 +12,8 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @Entity
 @Table(name = "users")
-public class User extends BaseEntity{
-    @Column(unique = true, nullable = false)
+public class UserEntity extends BaseEntity{
+    @Column(length = 255, unique = true, nullable = false)
     private String email;
 
     @Column(length = 60, nullable = false)
